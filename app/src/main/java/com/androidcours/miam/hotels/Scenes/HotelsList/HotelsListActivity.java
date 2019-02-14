@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.androidcours.miam.hotels.Models.Hotel;
 import com.androidcours.miam.hotels.R;
+import com.androidcours.miam.hotels.Scenes.HotelDetail.HotelDetailActivity;
 import com.androidcours.miam.hotels.Scenes.HotelsMap.HotelsMapsActivity;
 
 import java.util.ArrayList;
@@ -25,8 +26,6 @@ public class HotelsListActivity extends AppCompatActivity implements HotelsListV
     private HotelsListViewModel viewModel;
     private HotelsListAdapter adapter;
     private ListView listView;
-    private SQLiteDatabase db;
-    private Cursor cursor;
     private ArrayList<Hotel> hotels;
 
     @Override
@@ -54,7 +53,7 @@ public class HotelsListActivity extends AppCompatActivity implements HotelsListV
         int itemId = item.getItemId();
         if (itemId == R.id.maps_bar_item) {
             // Navigate to Map activity
-            Intent intent = new Intent(this, HotelsMapsActivity.class);
+            Intent intent = new Intent(this, HotelDetailActivity.class);
             Bundle bundle = new Bundle();
             bundle.putSerializable("hotels", hotels);
             intent.putExtras(bundle);

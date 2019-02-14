@@ -15,7 +15,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-public class HotelsMapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class HotelsMapsActivity extends AppCompatActivity implements OnMapReadyCallback, HotelsMapsViewModelDelegate {
 
     private final String TAG = "HotelsMapsActivity";
     private final LatLng MOROCCO_LOCATION = new LatLng(31.791702, -7.092620);

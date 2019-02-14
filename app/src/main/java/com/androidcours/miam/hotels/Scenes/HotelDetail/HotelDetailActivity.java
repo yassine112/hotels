@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.androidcours.miam.hotels.R;
 
-public class HotelDetailActivity extends AppCompatActivity {
+public class HotelDetailActivity extends AppCompatActivity implements HotelDetailViewModelDelegete {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
