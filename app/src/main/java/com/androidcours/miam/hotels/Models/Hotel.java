@@ -10,22 +10,22 @@ public class Hotel implements Serializable {
 
     private Integer id;
     private String name;
-    private String adress;
+    private String address;
     private String city;
     private Double rank;
-    private String description;
+    private String phone;
     private Double latitude;
     private Double longitude;
 
     // Constructors
 
-    public Hotel(Integer id, String name, String adress, String city, Double rank, String description, Double latitude, Double longitude) {
+    public Hotel(Integer id, String name, String address, String city, Double rank, String phone, Double latitude, Double longitude) {
         this.id = id;
         this.name = name;
-        this.adress = adress;
+        this.address = address;
         this.city = city;
         this.rank = rank;
-        this.description = description;
+        this.phone = phone;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -51,12 +51,12 @@ public class Hotel implements Serializable {
         this.name = name;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getaddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setaddress(String address) {
+        this.address = address;
     }
 
     public String getCity() {
@@ -75,12 +75,12 @@ public class Hotel implements Serializable {
         this.rank = rank;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Double getLatitude() {

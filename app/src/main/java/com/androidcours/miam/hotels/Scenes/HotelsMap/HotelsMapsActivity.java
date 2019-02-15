@@ -23,10 +23,12 @@ public class HotelsMapsActivity extends AppCompatActivity implements OnMapReadyC
     private GoogleMap mMap;
     private ArrayList<Hotel> hotels;
 
+    private HotelsMapsViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setup();
 
         Bundle bundle = getIntent().getExtras();
         hotels = (ArrayList<Hotel>) bundle.getSerializable("hotels");
@@ -38,6 +40,11 @@ public class HotelsMapsActivity extends AppCompatActivity implements OnMapReadyC
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+    }
+
+    private void setup() {
+        viewModel = new HotelsMapsViewModel();
+        viewModel.delegate = this;
     }
 
     @Override

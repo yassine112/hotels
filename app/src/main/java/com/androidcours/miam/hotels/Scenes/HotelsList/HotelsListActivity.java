@@ -1,5 +1,6 @@
 package com.androidcours.miam.hotels.Scenes.HotelsList;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,6 +10,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -53,7 +56,7 @@ public class HotelsListActivity extends AppCompatActivity implements HotelsListV
         int itemId = item.getItemId();
         if (itemId == R.id.maps_bar_item) {
             // Navigate to Map activity
-            Intent intent = new Intent(this, HotelDetailActivity.class);
+            Intent intent = new Intent(this, HotelsMapsActivity.class);
             Bundle bundle = new Bundle();
             bundle.putSerializable("hotels", hotels);
             intent.putExtras(bundle);
@@ -69,18 +72,30 @@ public class HotelsListActivity extends AppCompatActivity implements HotelsListV
     }
 
     private void setupView() {
+        //
         adapter = new HotelsListAdapter(this, R.layout.hotel_list_adabter_view_layout, hotels);
         listView = findViewById(R.id.hotelsList);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Recuperate the selected hotel
+                Hotel selectedHotel = (Hotel) parent.getItemAtPosition(position);
+
+                // Navigate to Hotel Detail
+                Intent intent = new Intent(HotelsListActivity.this, HotelDetailActivity.class);
+                intent.putExtra("hotel", selectedHotel);
+                startActivity(intent);
+            }
+        });
+
     }
 
     // Delegates Methods
     @Override
     public void didFinishFetchingHotels(ArrayList<Hotel> hotels) {
-        Log.d(TAG, "didFinishFetchingHotels() called with: hotels = [" + hotels + "]");
-        for (Hotel hotel : hotels) {
-            this.hotels.add(hotel);
-        }
+        // Recuperate Hotels List
+        for (Hotel hotel : hotels) { this.hotels.add(hotel); }
         adapter.notifyDataSetChanged();
     }
 
