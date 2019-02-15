@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.androidcours.miam.hotels.Models.Hotel;
 import com.androidcours.miam.hotels.R;
+import com.androidcours.miam.hotels.Scenes.AddHotel.AddHotelActivity;
 import com.androidcours.miam.hotels.Scenes.HotelDetail.HotelDetailActivity;
 import com.androidcours.miam.hotels.Scenes.HotelsMap.HotelsMapsActivity;
 
@@ -54,14 +55,22 @@ public class HotelsListActivity extends AppCompatActivity implements HotelsListV
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
+        Intent intent;
+
         if (itemId == R.id.maps_bar_item) {
             // Navigate to Map activity
-            Intent intent = new Intent(this, HotelsMapsActivity.class);
+            intent = new Intent(this, HotelsMapsActivity.class);
             Bundle bundle = new Bundle();
             bundle.putSerializable("hotels", hotels);
             intent.putExtras(bundle);
             startActivity(intent);
+        } else if (itemId == R.id.add_bar_item) {
+            // Navigate to Add hotel activity
+            intent = new Intent(this, AddHotelActivity.class);
+            startActivity(intent);
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }

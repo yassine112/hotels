@@ -2,8 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <item
+        android:title="@string/btn_ajouter"
+        android:id="@+id/add_bar_item"
+        android:icon="@drawable/add_new"
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/maps_bar_item"
+        android:icon="@drawable/marker"
         android:title="@string/menu_item_maps"
-        app:showAsAction="always" />
+        app:showAsAction="always"/>
+
 </menu>

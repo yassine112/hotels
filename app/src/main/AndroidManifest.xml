@@ -37,8 +37,9 @@
 
         <activity
             android:name=".Scenes.HotelsMap.HotelsMapsActivity"
-            android:label="@string/title_activity_hotels_maps"></activity>
-        <activity android:name=".Scenes.HotelDetail.HotelDetailActivity"></activity>
+            android:label="@string/title_activity_hotels_maps" />
+        <activity android:name=".Scenes.HotelDetail.HotelDetailActivity" />
+        <activity android:name=".Scenes.AddHotel.AddHotelActivity"></activity>
     </application>
 
 </manifest>
