@@ -41,8 +41,13 @@ public class HotelsListActivity extends AppCompatActivity implements HotelsListV
 
         setup();
         setupView();
-        viewModel.getAllHotels();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewModel.getAllHotels();
     }
 
     @Override
@@ -76,7 +81,7 @@ public class HotelsListActivity extends AppCompatActivity implements HotelsListV
     }
 
     private void setup() {
-        viewModel = new HotelsListViewModel();
+        viewModel = new HotelsListViewModel(this);
         viewModel.delegate = this;
     }
 
@@ -104,6 +109,7 @@ public class HotelsListActivity extends AppCompatActivity implements HotelsListV
     @Override
     public void didFinishFetchingHotels(ArrayList<Hotel> hotels) {
         // Recuperate Hotels List
+        this.hotels.clear();
         for (Hotel hotel : hotels) { this.hotels.add(hotel); }
         adapter.notifyDataSetChanged();
     }

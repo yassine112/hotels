@@ -8,6 +8,28 @@ import java.io.Serializable;
 
 public class Hotel implements Serializable {
 
+    // Database parameters
+    public static final String TABLE_NAME       = "hotel";
+    public static final String COLUMN_ID        = "id";
+    public static final String COLUMN_NAME      = "name";
+    public static final String COLUMN_ADDRESS   = "address";
+    public static final String COLUMN_CITY      = "city";
+    public static final String COLUMN_RANK      = "rank";
+    public static final String COLUMN_PHONE     = "phone";
+    public static final String COLUMN_LAT       = "lat";
+    public static final String COLUMN_LON       = "lon";
+
+    public static final String CREATE_TABLE = "CREATE TABLE "
+            + TABLE_NAME + " ( `"
+            + COLUMN_ID + "` INTEGER PRIMARY KEY AUTOINCREMENT, `"
+            + COLUMN_NAME + "` TEXT, `"
+            + COLUMN_ADDRESS + "` TEXT, `"
+            + COLUMN_CITY + "` TEXT, `"
+            + COLUMN_RANK + "` REAL, `"
+            + COLUMN_PHONE + "` TEXT, `"
+            + COLUMN_LAT + "` REAL, `"
+            + COLUMN_LON + "` REAL )";
+
     private Integer id;
     private String name;
     private String address;

@@ -5,5 +5,5 @@ package com.androidcours.miam.hotels.Scenes.AddHotel;
  */
 
 interface AddHotelViewModelDelegate {
-
+    void didInsertNewHotel(boolean success, long id);
 }

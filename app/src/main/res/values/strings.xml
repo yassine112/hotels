@@ -10,4 +10,6 @@
     <string name="hint_address">Address</string>
     <string name="btn_ajouter">Ajouter</string>
     <string name="about_menu_item">About</string>
+    <string name="hint_lat">Latitude</string>
+    <string name="hint_lon">Longitude</string>
 </resources>
